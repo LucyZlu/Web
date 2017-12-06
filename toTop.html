@@ -1,0 +1,82 @@
+<!DOCHTML html>
+<html>
+
+<head>
+    <title>回到顶部</title>
+    <style>
+        #body {
+            height: 2500px;
+            width: 100%;
+            background-color: gainsboro;
+        }
+
+        #square {
+            height: 50px;
+            width: 50px;
+            border: 1px darkgrey solid;
+            border-radius: 5px;
+            background-color: ghostwhite;
+            position: fixed;
+            top: 600px;
+            right: 100px;
+            display: none;
+        }
+
+        #arrow_left,
+        #arrow_right {
+            width: 20px;
+            height: 5px;
+            position: absolute;
+            top: 20px;
+            background-color: darkgray;
+            border-radius: 2px;
+        }
+
+        #arrow_left {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            /*兼容性必加*/
+            -moz-transform: rotate(-45deg);
+            left: 9px;
+        }
+
+        #arrow_right {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            left: 21px;
+        }
+
+        #square:hover {
+            background-color: deepskyblue;
+        }
+
+        #square:hover div {
+            background-color: white;
+        }
+
+    </style>
+ 
+</head>
+
+<body>
+    <div id='body'></div>
+    <a id='square' href='#'>
+        <div id='arrow_left'></div>
+        <div id='arrow_right'></div>
+    </a>
+    <script>
+        window.onscroll = function() {
+            var scroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var square = document.getElementById("square");
+            if (scroll >= document.body.clientHeight) {
+                square.style.display = 'block';
+            } else {
+                square.style.display = 'none';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
