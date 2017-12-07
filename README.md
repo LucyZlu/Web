@@ -1,1 +1,1 @@
-回到顶部 https://github.com/LucyZlu/Web/toTop.html
+回到顶部https://lucyzlu.github.io/Web/toTop.html
