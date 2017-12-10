@@ -1,1 +1,2 @@
-回到顶部https://lucyzlu.github.io/Web/toTop.html
+1.回到顶部css图标https://lucyzlu.github.io/Web/toTop.html
+2.打字效果http://lucyzlu.github.io/Web/dist/index.html
