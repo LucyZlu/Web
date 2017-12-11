@@ -19,7 +19,7 @@
             }
         },
         methods:{
-            /*拉动下滑框*/
+            /*设置滚动条位置*/
             wrap:function(){
                 this.$refs.container.scrollTop=100000;
             }
