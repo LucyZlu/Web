@@ -19,8 +19,7 @@
             return {
                 /*所有的style文件*/
                 currentStyle: '',
-                allStyles: 
-                    `/*
+                allStyles: `/*
 * Inspired by 
 * https://github.com/Wscats/CV
 * http://strml.net
@@ -35,10 +34,11 @@ html {
    color:rgb(222,222,222); 
    background: rgb(0,43,54); 
 }
-/*把字体调大一点*/
+/*调节每个字体占总宽度的*/
 #app{
     text-align:left;
-    font-size:18px;
+    font-size:1.8vw;
+    width:100%;
 }
 /* 指定代码高亮颜色 */
 .token.selector{ color: rgb(133,153,0); }
@@ -51,7 +51,7 @@ html {
     border: 1px solid white;
     margin: .5em;
     overflow: auto;
-    width: 45vw; 
+    width: 100%; 
     height: 90vh;
 }
 /*加上3D效果，需要在Chrome浏览器下查看*/
@@ -79,9 +79,9 @@ html{
                             var lastChar = this.allStyles[this.currentStyle.length - 1];
                             var char = this.allStyles[this.currentStyle.length] || ' ';
                             this.currentStyle += char;
-                            if(lastChar==='\n'){
-                               this.$nextTick(()=>this.$refs.styleEditor.wrap());
-                               }
+                            if (lastChar === '\n') {
+                                this.$nextTick(() => this.$refs.styleEditor.wrap());
+                            }
                             setTimeout(showStyle, 50);
                         } else {
                             resolve();
