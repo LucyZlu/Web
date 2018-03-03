@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            垂直居中解决方案
+        </title>
+        <style>
+            html,body{
+	        	font-size:15px;
+	        }
+            .parent{
+        		background-color:gold;
+        		width:600px;
+        		height:200px;
+        		border:1px lime solid;
+        	}
+
+        	.child{
+        		background-color: lightblue;
+        	}
+        	/*表格方案*/
+            #table-method{
+        		display:table;
+	        }
+	        #table-child{
+	        	display:table-cell;
+	        	text-align:center;
+	        	vertical-align:middle;
+	        }
+
+	        /*绝对定位方案*/
+	        #position-father{
+	        	position:relative;
+	        }
+	        #position-child{
+	        	position:absolute;
+	        	top:50%;
+	        	left:50%;
+	        	transform:translate(-50%,-50%);
+	        }
+
+	        /*相对于视口单位进行居中的解决方案*/
+	        #view-father{
+	        	position:fixed;
+	        	top:0;
+	        	right:0;
+	        	height:100vh;
+	        }
+	        #view-child{
+	        	margin:50vh auto 0;
+	        	transform:translateY(-50%);
+	        }
+
+	        /*基于伸缩盒的解决方案*/
+	        #flex-father{
+	        	display:flex;
+
+	        }
+	        #flex-child{
+	        	margin:auto;
+	        }
+
+	        /*基于Flexbox的解决方案，被认为是最佳解决方案*/
+        </style>
+    </head>
+    <body>
+        <main>
+            <!-- 1.基于表格样式的垂直居中解决方案 -->
+            <div class="parent" id="table-method">
+                <div class="child" id="table-child">
+                    <h1>
+                        1.基于表格样式的垂直居中解决方案
+                    </h1>
+                    <p>
+                        <a href="https://css-tricks.com/centering-in-the-unknown/">
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <!-- 2.基于绝对定位的解决方案 -->
+            <div class="parent" id="position-father">
+                <div class="child" id="position-child">
+                    2.基于绝对定位的解决方案
+                </div>
+            </div>
+            <!-- 3.基于视口单位进行定位的解决方案，只适用于需要在视口中居中的情况-->
+            <div class="parent" id="view-father">
+	            <div class="child" id="view-child">
+	                3.基于视口进行定位的解决方案
+	            </div>
+        	</div>
+        	<!-- 基于Flexbox的解决方案-->
+        	<div class="parent" id="flex-father">
+        		<div class="child" id="flex-child">
+        			4.基于Flexbox的解决方案，要考虑浏览器支持
+        			当父元素设置display:flex后，子元素设置margin:auto不仅仅是水平居中，也可以垂直居中
+        		</div>
+        	</div>
+            <main>
+            </main>
+        </main>
+    </body>
+</html>
