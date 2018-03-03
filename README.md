@@ -2,4 +2,4 @@
 
 2.打字效果https://lucyzlu.github.io/Web/typingDemo/dist/index.html
 
-3.垂直居中4中解决方案：https://lucyzlu.github.io/Web/align-center.html
+3.垂直居中4种解决方案：https://lucyzlu.github.io/Web/align-center.html
