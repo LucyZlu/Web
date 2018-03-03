@@ -8,47 +8,50 @@
             *{
 	        	margin:0;
 	        	padding:0;
+                box-sizing:border-box;
 	        }
 
             html,body{
 	        	font-size:15px;
+                text-align: center;
 	        }
-            .parent{
+            div.parent{
         		background-color:gold;
-        		width:600px;
         		height:200px;
+                width:100%;
         		border:1px lime solid;
         	}
 
-        	.child{
+        	div.child{
+                width:100%;
         		background-color: lightblue;
         	}
 
-	        .left{
+	        div.left{
 	        	float:left;
-	        	width:620px;
-	        	margin-right:10px;
+	        	width:50%;
+                margin-right:2%;
 	        }
 
-	        .right{
-	        	overflow: hidden;
-	        	height:100vh;
+	        div.right{
+	        	float:right;
+                width:48%;
 	        }
         	/*表格方案*/
-            #table-father{
+            div#table-father{
         		display:table;
 	        }
-	        #table-child{
+	        div#table-child{
 	        	display:table-cell;
 	        	text-align:center;
 	        	vertical-align:middle;
 	        }
 
 	        /*绝对定位方案*/
-	        #position-father{
+	        div#position-father{
 	        	position:relative;
 	        }
-	        #position-child{
+	        div#position-child{
 	        	position:absolute;
 	        	top:50%;
 	        	left:50%;
@@ -56,20 +59,20 @@
 	        }
 
 	        /*相对于视口单位进行居中的解决方案*/
-		    #view-father{
-		       	height:100%;
+		    div#view-father{
+		       	height:100vh;
 		    }
-	        #view-child{
+	        div#view-child{
 	        	margin:50vh auto 0;
 	        	transform:translateY(-50%);
 	        }
 
 	        /*基于伸缩盒的解决方案*/
-	        #flex-father{
+	        div#flex-father{
 	        	display:flex;
 
 	        }
-	        #flex-child{
+	        div#flex-child{
 	        	margin:auto;
 	        }
 
