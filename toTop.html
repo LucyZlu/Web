@@ -4,8 +4,9 @@
         <title>
             改变定位的tab菜单
         </title>
-        <style>
-            /*消除浏览器默认样式，让body铺满视口*/
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+            <style>
+                /*消除浏览器默认样式，让body铺满视口*/
         *{
             margin:0;
             padding:0;
@@ -68,55 +69,58 @@
             position: relative;
         }
 
-        #right{
-            background-color: white;
-            position:absolute;
-            right:0;
-            width:70%;
-            height:100%;
-            top:0;
-            border:1px solid gray;
-        }
 
         /*会随页面滚动改变定位的侧边栏菜单*/
-        #tabMenu{
-            position:absolute;
-            right:70%;
-        }
-        /*去除无序列表前的默认原点*/
-        #tabMenu ul{
+        #tabList{
+            /*粘性定位*/
+            position：-webkit-sticky;
+            position:sticky;
+            top:20px;
+            margin-left:20px;
+           /*距离视口顶部大10px时为相对定位，当滚动致使其距离小于等于10px后变为固定定位，距离顶部10px*/
             list-style-type: none;
-        }
+       }
+
         
-        #tabMenu ul li{
+        #tabList li{
             border:1px solid gray;
-            padding:2px;
+            padding:5px;
             width:100px;
             height:40px;
-            padding:5px;
-            text-align:center;
+            margin:5px 0;
             /*行高设置成和容器高度一致即可让li中文字垂直居中,vertical-align只能用在表格中垂直居中*/
             line-height: 40px;
             font-size:10px;
             border-radius:15px 0 0 15px;
-            margin:5px 0 5px 0;
             /*指定线性渐变时使用background而不是background-color*/
             background:linear-gradient(90deg,deepskyblue,lightblue 80%,white);
         }
 
-        #tabMenu ul li:hover{
+        #tabList li:hover{
             /*不能指定background-color，需与默认指定一致写为linear-gradient*/
             background:linear-gradient(0deg,white,white);
             cursor: pointer;
         }
 
+        #right{
+            position:absolute;
+            left:112px;
+            right:0;
+            top:0;
+
+            background-color: lightgray;
+            height:100%;
+            border:1px solid gray;
+        }
+        
         #top,#footer{
             width:100%;
             height:500px;
             background-color:rgb(69,72,76);
             line-height: 500px;
         }
-        </style>
+            </style>
+        </meta>
     </head>
     <body>
         <div id="container">
@@ -127,10 +131,11 @@
             </header>
             <div id="content">
                 <!-- left tab menu -->
-                <div id="tabMenu">
-                    <ul id="tabList">
-                    </ul>
-                </div>
+                <ul id="tabList">
+                    <li>
+                        test
+                    </li>
+                </ul>
                 <div id="right">
                 </div>
             </div>
@@ -155,8 +160,8 @@
                 var tabUL=document.getElementById("tabList");
                 var fragment =document.createDocumentFragment();
                 var timeoutID=null;
-                //动态增添菜单选项
-                for(let i=1;i<=12;i++){
+                var i=null;
+                for(i=1;i<=12;i++){
                     var li=document.createElement("li");
                     var textNode=document.createTextNode("tab"+i);
                     li.appendChild(textNode);
@@ -180,7 +185,7 @@
                     */
                     var footer=document.getElementById("footer");
 
-                    if(toTop>500){
+                    /*if(toTop>500){
                         tabMenu.style.position="fixed";
                         tabMenu.style.top=0;
                         tabMenu.style.bottom=null;
@@ -193,7 +198,7 @@
                         tabMenu.style.position="absolute";
                         tabMenu.style.top=0;
                         tabMenu.style.bottom=null;
-                    }
+                    }*/
                     //用户滑动滚轮时停止回到顶部动画
                     document.body.addEventListener("mousewheel",function(event){
                                 clearTimeout(timeoutID);
