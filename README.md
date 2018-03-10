@@ -1,5 +1,7 @@
-1.回到顶部css图标https://lucyzlu.github.io/Web/toTop.html
+1.position:sticy tabMenu Demo:https://lucyzlu.github.io/Web/toTop.html
 
-2.打字效果https://lucyzlu.github.io/Web/typingDemo/dist/index.html
+2.promise typing Demo:https://lucyzlu.github.io/Web/typingDemo/dist/index.html
 
-3.垂直居中4种解决方案：https://lucyzlu.github.io/Web/align-center.html
+3.four center items solutions:https://lucyzlu.github.io/Web/align-center.html
+
+4.lazyload Demo:https://lucyzlu.github.io/Web/lazyload/lazyload.html
