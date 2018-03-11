@@ -3,21 +3,21 @@
     <head>
         <style>
             *{
-    		margin:0;
-    		padding:0;
-    	}
-    	.imgDiv{
-    		display:grid;
-    		grid-template-columns: 1fr 1fr;
-    		grid-gap:1rem;
-    		
-    	}
+            margin:0;
+            padding:0;
+        }
+        .imgDiv{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap:1rem;
+            
+        }
 
-    	.container{
-    		display:grid;
-    		align-items: center;
-    		justify-content: center;
-    	}
+        .container{
+            display:grid;
+            align-items: center;
+            justify-content: center;
+        }
         </style>
     </head>
     <body>
@@ -69,22 +69,38 @@
         </div>
         <script>
             window.onload=function(){
-        		var clientHeight=window.screen.height;
-        		//选取所有包含属性data-src的img元素，然后在滚动的时候判断是否在可视区域
-        		var imgArray=document.querySelectorAll("[data-src]");
-        		function lazyLoad(){
-        			var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
-        			for(let i=0;i<imgArray.length;i++){
-        				let img=imgArray[i];
-        				if(img.offsetTop-scrollTop<clientHeight){
-        					img.src=img.getAttribute("data-src");
-        				}
+                var clientHeight=getWindow().height;
+                //选取所有包含属性data-src的img元素，然后在滚动的时候判断是否在可视区域
+                var imgArray=document.querySelectorAll("[data-src]");
+                function lazyLoad(){
+                    var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+                    for(let i=0;i<imgArray.length;i++){
+                        let img=imgArray[i];
+                        if(img.offsetTop-scrollTop<clientHeight){
+                            img.src=img.getAttribute("data-src");
+                        }
 
-        			}
-        		}
-        		window.onscroll=lazyLoad;
-        		lazyLoad();
-        	}
+                    }
+                }
+                window.onscroll=lazyLoad;
+                lazyLoad();
+
+                //跨浏览器获取可视窗口大小
+                function  getWindow () {
+                    if(typeof window.innerWidth !='undefined') {
+                        return{
+                            width : window.innerWidth,
+                            height : window.innerHeight
+                        }
+
+                    } else{
+                        return {
+                            width : document.documentElement.clientWidth,
+                            height : document.documentElement.clientHeight
+                        }
+                    }
+                }
+            }
         </script>
     </body>
 </html>
