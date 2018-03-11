@@ -20,6 +20,7 @@ Description: Four solutions to center the element in the parent box, including t
 四种实现居中的解决方案：包括表格样式，绝对定位，伸缩盒和利用视口单位的方法。
 
 4.lazyload Demo
+-
 Address:https://lucyzlu.github.io/Web/lazyload/lazyload.html<br>
 Description: A demo use two methods to implement lazy load.<br>
 两种实现懒加载的方式，一种是基于监听scroll事件的方法，但网页性能不好，一种是利用新的浏览器API IntersectionObserver。
