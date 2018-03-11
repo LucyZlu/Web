@@ -43,42 +43,39 @@
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product1.jpg" src="./loading.jpg">
+                <img data-src="./product6.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product2.jpg" src="./loading.jpg">
+                <img data-src="./product7.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product3.jpg" src="./loading.jpg">
+                <img data-src="./product8.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product4.jpg" src="./loading.jpg">
+                <img data-src="./product9.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product5.jpg" src="./loading.jpg">
+                <img data-src="./product10.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product1.jpg" src="./loading.jpg">
+                <img data-src="./product11.jpg" src="./loading.jpg">
                 </img>
             </div>
         </div>
         <script>
             window.onload=function(){
-        		var clientHeight=document.body.clientHeight||document.documentElement.clientHeight;
+        		var clientHeight=window.screen.height;
         		//选取所有包含属性data-src的img元素，然后在滚动的时候判断是否在可视区域
         		var imgArray=document.querySelectorAll("[data-src]");
-        		console.log("type:"+(typeof imgArray));
-        		console.log(imgArray);
         		function lazyLoad(){
         			var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
         			for(let i=0;i<imgArray.length;i++){
         				let img=imgArray[i];
-        				console.log(img.scrollTop-scrollTop);
         				if(img.offsetTop-scrollTop<clientHeight){
         					img.src=img.getAttribute("data-src");
         				}
