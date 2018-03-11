@@ -23,68 +23,89 @@
     <body>
         <div class="imgDiv">
             <div class="container">
-                <img data-src="./product1.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product1.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product2.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product2.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product3.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product3.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product4.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product4.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product5.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product5.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product6.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product6.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product7.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product7.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product8.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product8.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product9.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product9.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product10.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product10.jpg" src="./loading.jpg">
                 </img>
             </div>
             <div class="container">
-                <img data-src="./product11.jpg" src="./loading.jpg">
+                <img class="lazyload" data-src="./product11.jpg" src="./loading.jpg">
                 </img>
             </div>
         </div>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js" type="text/javascript"> -->
+        <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+        </script>
         <script>
+            /*方法三：Jquery插件 lazyload.js*/
             window.onload=function(){
+                lazyload();
+            }
+
+            /*方法二：阮一峰 lozad.js 使用浏览器API：IntersectionObserver 交叉观察器*/
+            /* const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+                observer.observe();*/
+                
+            /*方法三：不使用API*/
+           /*window.onload=function(){
+               
                 var clientHeight=getWindow().height;
                 //选取所有包含属性data-src的img元素，然后在滚动的时候判断是否在可视区域
-                var imgArray=document.querySelectorAll("[data-src]");
+                var imgArray=toArray(document.querySelectorAll("[data-src]"));
+
                 function lazyLoad(){
+                    var loadedIndex=[];
+
                     var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
                     for(let i=0;i<imgArray.length;i++){
                         let img=imgArray[i];
-                        if(img.offsetTop-scrollTop<clientHeight){
+                        let rect=img.getBoundingClientRect();
+                        if(rect.top>=0&&rect.top<=clientHeight){
                             img.src=img.getAttribute("data-src");
+                            console.log("img "+img.src.substring(img.src.lastIndexOf("/")+1)+"display.");
+                            loadedIndex.unshift(i);//这里不能用push，因为删除的时候先要删除后面的，再删除前面的，否则Array删除了前面的，后面的就会自动覆盖到前面来。
                         }
+                    }
 
+                    for(let i=0;i<loadedIndex.length;i++){
+                        imgArray.splice(loadedIndex[i],1);
                     }
                 }
-                window.onscroll=lazyLoad;
-                lazyLoad();
-
+               
                 //跨浏览器获取可视窗口大小
                 function  getWindow () {
                     if(typeof window.innerWidth !='undefined') {
@@ -95,12 +116,28 @@
 
                     } else{
                         return {
-                            width : document.documentElement.clientWidth,
+                            width :    document.documentElement.clientWidth,
                             height : document.documentElement.clientHeight
                         }
                     }
                 }
-            }
+
+                function toArray(arrlike){
+                    if(typeof Array.from !="function"){
+                        var result=[];
+                        for(let i=0;i<arrlike.length;i++){
+                            result.push(arrlike[i]);
+                        }
+                        return result;
+                    }else{
+                        return Array.from(arrlike);
+                    }
+                }
+
+                window.onscroll=lazyLoad;
+                lazyLoad();
+
+            }*/
         </script>
     </body>
 </html>
