@@ -25,6 +25,11 @@ Address:https://lucyzlu.github.io/Web/lazyload/lazyload.html<br>
 Description: A demo use two methods to implement lazy load.<br>
 两种实现懒加载的方式，一种是基于监听scroll事件的方法，但网页性能不好，一种是利用新的浏览器API IntersectionObserver。
 
+5.Vue data binding Demo
+-
+Address:https://lucyzlu.github.io/Web/vue-data-binding.html<br>
+Description: A demo implement data bingding.<br>
+一个实现数据双向绑定的简单样例。
 
 CSDN blog address
 ===
