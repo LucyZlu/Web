@@ -3,37 +3,92 @@
     <head>
         <meta charset="utf-8">
             <title>
-                Vue数据双向绑定
+                数据双向绑定
             </title>
+            <style>
+                div {
+                  margin: 10px;
+                }
+
+                input {
+                  background-color: gold;
+                  border-radius: 5px;
+                  width: 300px;
+                  height: 30px;
+                }
+
+                input:hover {
+                  border: 1px solid blue;
+                }
+
+                span {
+                  display: inline-block;
+                  width: 12rem;
+                  text-align: right;
+                }
+
+                #show {
+                  background-color: lightblue;
+                }
+            </style>
         </meta>
     </head>
     <body>
-        <input id="test" style="width:300px;height:30px;" type="text" value="请输入数据观察下面文字的变化">
-            <p id="show">
-                我始终显示的是模型对象中的值
-            </p>
-        </input>
+        <div id="all">
+            <div>
+                <span>
+                    输入数据观察下个框变化：
+                </span>
+                <input id="test" type="text">
+                </input>
+            </div>
+            <div>
+                <span>
+                    模型对象中的属性值：
+                </span>
+                <input id="show" text="text">
+                </input>
+            </div>
+        </div>
     </body>
     <script>
-        var obj={};
-        var inputTag=document.getElementById("test");
-        var pTag=document.getElementById("show");
-        inputTag.addEventListener("input",function(event){
-          console.log("input!!:"+event.target.value);
-          obj.value=event.target.value;
-        });
-
-
-        Object.defineProperty(obj,"value",{
-        enumerable:true,
-        configurable:true,
-        set:function(newValue){
-          console.log("newvalue:"+newValue);
-          inputTag.value=newValue;
-          pTag.innerHTML=newValue;
-        },
-        get:function(){
+      var obj = {
+        display: "初始模型对象中的值"
+      };
+      var inputTag = document.getElementById("test");
+      var showTag = document.getElementById("show");
+      var allDiv = document.getElementById("all");
+      
+      showTag.value = obj.display;
+      defineReactiveProperties(obj, "display", obj.display);
+      
+      allDiv.addEventListener("input", function(event) {
+        var value = event.target.value;
+        switch (event.target.id) {
+          case "test":
+            obj.display = value;
+            break;
+          case "show":
+            obj.display = value;
         }
+
+      });
+
+      function defineReactiveProperties(obj, key, value) {
+        Object.defineProperty(obj, key, {
+          enumerable: true,
+          configurable: true,
+          set: function(newValue) {
+            if (newValue != value) {
+              value = newValue;
+            }
+            inputTag.value = value;
+            showTag.value = value;
+          },
+          get: function() {
+            return value;
+          }
         });
+      }
     </script>
 </html>
