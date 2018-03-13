@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                Vue数据双向绑定
+            </title>
+        </meta>
+    </head>
+    <body>
+        <input id="test" style="width:300px;height:30px;" type="text" value="请输入数据观察下面文字的变化">
+            <p id="show">
+                我始终显示的是模型对象中的值
+            </p>
+        </input>
+    </body>
+    <script>
+        var obj={};
+        var inputTag=document.getElementById("test");
+        var pTag=document.getElementById("show");
+        inputTag.addEventListener("input",function(event){
+          console.log("input!!:"+event.target.value);
+          obj.value=event.target.value;
+        });
+
+
+        Object.defineProperty(obj,"value",{
+        enumerable:true,
+        configurable:true,
+        set:function(newValue){
+          console.log("newvalue:"+newValue);
+          inputTag.value=newValue;
+          pTag.innerHTML=newValue;
+        },
+        get:function(){
+        }
+        });
+    </script>
+</html>
