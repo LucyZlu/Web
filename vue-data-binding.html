@@ -52,13 +52,13 @@
         </div>
     </body>
     <script>
-      var obj = {
+        var obj = {
         display: "初始模型对象中的值"
       };
       var inputTag = document.getElementById("test");
       var showTag = document.getElementById("show");
       var allDiv = document.getElementById("all");
-      
+
       showTag.value = obj.display;
       defineReactiveProperties(obj, "display", obj.display);
       
@@ -79,11 +79,12 @@
           enumerable: true,
           configurable: true,
           set: function(newValue) {
-            if (newValue != value) {
+            if (newValue === value) {
+                return;
+              }
               value = newValue;
-            }
-            inputTag.value = value;
-            showTag.value = value;
+              inputTag.value = value;
+              showTag.value = value;
           },
           get: function() {
             return value;
