@@ -31,9 +31,4 @@ Address:https://lucyzlu.github.io/Web/vue-data-binding.html<br>
 Description: A demo implement data bingding.<br>
 一个实现数据双向绑定的简单样例。
 
-CSDN blog address
-===
-http://my.csdn.net/
 
-Welcome to read my blog and give me comments!<br>
-欢迎访问我的博客并提出您宝贵的建议！
